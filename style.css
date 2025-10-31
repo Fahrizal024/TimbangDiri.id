@@ -135,13 +135,21 @@ tr:hover {
 
 /* ====== TIPS BOX ====== */
 .tips-box {
-  background: #e3f2fd;
-  padding: 1rem;
-  margin-top: 1rem;
-  border-radius: 8px;
-  text-align: left;
-  animation: fadeIn 1s ease;
+  background: linear-gradient(135deg, #a8e6cf, #dcedc1);
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 12px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.7s ease;
+  font-size: 15px;
   border-left: 4px solid #1976d2;
+}
+
+.tips-box.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ====== ANIMASI ====== */
@@ -174,21 +182,4 @@ tr:hover {
   button {
     width: 100%;
   }
-}
-
-.tips-box {
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #a8e6cf, #dcedc1);
-  font-size: 15px;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.7s ease;
-}
-
-.tips-box.show {
-  opacity: 1;
-  transform: translateY(0);
 }
