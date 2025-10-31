@@ -21,6 +21,12 @@ header {
   animation: slideDown 0.6s ease;
 }
 
+header p {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
 h1 {
   margin: 0;
   font-size: 1.8rem;
@@ -63,11 +69,13 @@ input, select {
   border: 1px solid #ccc;
   margin-top: 0.4rem;
   transition: all 0.3s;
+  font-size: 0.95rem;
 }
 
 input:focus, select:focus {
   border-color: #1976d2;
   box-shadow: 0 0 6px rgba(25,118,210,0.4);
+  outline: none;
 }
 
 /* ====== TOMBOL ====== */
@@ -79,6 +87,7 @@ button {
   background: linear-gradient(90deg, #1976d2, #0d47a1);
   color: white;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
 }
@@ -86,6 +95,15 @@ button {
 button:hover {
   background: linear-gradient(90deg, #0d47a1, #1976d2);
   transform: scale(1.05);
+}
+
+/* Tombol group di hasil */
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 /* ====== LOADING ANIMATION ====== */
@@ -106,12 +124,12 @@ button:hover {
 /* ====== TABEL HASIL ====== */
 .table-container {
   overflow-x: auto;
+  margin-top: 1rem;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem;
   animation: fadeIn 0.8s ease;
 }
 
@@ -135,16 +153,17 @@ tr:hover {
 
 /* ====== TIPS BOX ====== */
 .tips-box {
-  background: linear-gradient(135deg, #a8e6cf, #dcedc1);
-  padding: 15px;
   margin-top: 15px;
+  padding: 15px;
   border-radius: 12px;
+  background: linear-gradient(135deg, #a8e6cf, #dcedc1);
+  font-size: 15px;
   text-align: center;
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.7s ease;
-  font-size: 15px;
   border-left: 4px solid #1976d2;
+  line-height: 1.4;
 }
 
 .tips-box.show {
@@ -181,5 +200,10 @@ tr:hover {
 
   button {
     width: 100%;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 8px;
   }
 }

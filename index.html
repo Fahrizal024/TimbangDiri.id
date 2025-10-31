@@ -9,6 +9,7 @@
   <!-- jsPDF untuk ekspor PDF -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
+
 <body>
   <header>
     <h1>TimbangDiri.id</h1>
@@ -77,70 +78,10 @@
   </main>
 
   <footer>
-    <p>© 2025 TimbangDiri.id | Dibuat oleh <strong>Zall.id</strong></p>
+    <p>© 2025 TimbangDiri.id | Dibuat oleh <strong>Zall.Project</strong></p>
   </footer>
 
   <!-- Script utama -->
   <script src="script.js"></script>
-
-  <!-- Firebase -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
-
-    // Konfigurasi Firebase
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "timbangdiri.firebaseapp.com",
-      projectId: "timbangdiri",
-      storageBucket: "timbangdiri.appspot.com",
-      messagingSenderId: "XXXXXXX",
-      appId: "XXXXXXXXXXXX"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // Form submit
-    const form = document.getElementById("healthForm");
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const nama = document.getElementById("nama").value.trim();
-      const gender = document.getElementById("gender").value;
-      const berat = parseFloat(document.getElementById("berat").value);
-      const tinggi = parseFloat(document.getElementById("tinggi").value);
-
-      if (!nama || !gender || !berat || !tinggi) {
-        alert("Harap isi semua data dengan benar!");
-        return;
-      }
-
-      // Tampilkan loading
-      document.getElementById("formSection").classList.add("hidden");
-      document.getElementById("loadingSection").classList.remove("hidden");
-
-      try {
-        await addDoc(collection(db, "dataKesehatan"), {
-          nama,
-          gender,
-          berat,
-          tinggi,
-          timestamp: new Date()
-        });
-
-        alert("Data berhasil disimpan di Firebase!");
-        document.getElementById("loadingSection").classList.add("hidden");
-        document.getElementById("resultSection").classList.remove("hidden");
-
-        // Bisa ditambahkan fungsi untuk menampilkan hasil di tabel
-      } catch (error) {
-        console.error("Error menyimpan data:", error);
-        alert("Terjadi kesalahan, coba lagi!");
-        document.getElementById("loadingSection").classList.add("hidden");
-        document.getElementById("formSection").classList.remove("hidden");
-      }
-    });
-  </script>
 </body>
 </html>
