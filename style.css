@@ -1,0 +1,194 @@
+/* ====== TEMA UTAMA TimbangDiri.id ====== */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  color: #222;
+  text-align: center;
+  transition: background 0.5s ease;
+  min-height: 100vh;
+}
+
+/* ====== HEADER ====== */
+header {
+  background: linear-gradient(90deg, #1565c0, #1976d2);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  animation: slideDown 0.6s ease;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+/* ====== KONTEN UTAMA ====== */
+main {
+  padding: 2rem;
+}
+
+section {
+  background: white;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  max-width: 480px;
+  animation: fadeIn 0.6s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ====== INPUT & FORM ====== */
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 0.4rem;
+  transition: all 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 6px rgba(25,118,210,0.4);
+}
+
+/* ====== TOMBOL ====== */
+button {
+  margin-top: 1.2rem;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #1976d2, #0d47a1);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #0d47a1, #1976d2);
+  transform: scale(1.05);
+}
+
+/* ====== LOADING ANIMATION ====== */
+.loading-spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #1976d2;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 30px auto;
+  animation: spin 1s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ====== TABEL HASIL ====== */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  animation: fadeIn 0.8s ease;
+}
+
+th, td {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+th {
+  background: #1976d2;
+  color: white;
+  font-weight: 600;
+}
+
+tr:hover {
+  background: #e3f2fd;
+  transition: 0.3s;
+}
+
+/* ====== TIPS BOX ====== */
+.tips-box {
+  background: #e3f2fd;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  text-align: left;
+  animation: fadeIn 1s ease;
+  border-left: 4px solid #1976d2;
+}
+
+/* ====== ANIMASI ====== */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 480px) {
+  section {
+    max-width: 95%;
+    padding: 1rem;
+  }
+
+  th, td {
+    font-size: 0.85rem;
+    padding: 6px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+.tips-box {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #a8e6cf, #dcedc1);
+  font-size: 15px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.7s ease;
+}
+
+.tips-box.show {
+  opacity: 1;
+  transform: translateY(0);
+}

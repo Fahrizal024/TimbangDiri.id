@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TimbangDiri.id</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Tambahan jsPDF CDN untuk ekspor hasil -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>TimbangDiri.id</h1>
+    <p>Website Pemantauan Berat Ideal</p>
+  </header>
+
+  <main>
+    <!-- FORM INPUT -->
+    <section id="formSection">
+      <h2>Input Data Kesehatan</h2>
+      <form id="healthForm">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" required />
+
+        <label for="gender">Jenis Kelamin:</label>
+        <select id="gender" required>
+          <option value="">-- Pilih --</option>
+          <option value="Laki-laki">Laki-laki</option>
+          <option value="Perempuan">Perempuan</option>
+        </select>
+
+        <label for="berat">Berat Badan (kg):</label>
+        <input type="number" id="berat" required min="1" />
+
+        <label for="tinggi">Tinggi Badan (cm):</label>
+        <input type="number" id="tinggi" required min="1" />
+
+        <button type="submit" id="submitButton">Lanjut</button>
+      </form>
+    </section>
+
+    <!-- ANIMASI LOADING -->
+    <section id="loadingSection" class="hidden">
+      <div class="loading-spinner"></div>
+      <p>Menimbang data kamu...</p>
+    </section>
+
+    <!-- HASIL -->
+    <section id="resultSection" class="hidden">
+      <h2>Hasil Data</h2>
+      <p id="tanggalHasil"></p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Jenis Kelamin</th>
+              <th>Berat (kg)</th>
+              <th>Tinggi (cm)</th>
+              <th>BMI</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="dataTable"></tbody>
+        </table>
+      </div>
+
+      <div id="bmiTips" class="tips-box"></div>
+
+      <div class="button-group">
+        <button id="savePDF">Simpan Hasil (PDF)</button>
+        <button id="backButton">Kembali</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 TimbangDiri.id | Dibuat oleh <strong>Zall.id</strong></p>
+  </footer>
+
+  <!-- Script utama -->
+  <script src="script.js"></script>
+</body>
+</html>
